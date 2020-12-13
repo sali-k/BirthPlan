@@ -55,7 +55,6 @@ export function ChatScreen(props: Props) {
   const getMessages = async () => {
     const messages = [] as Message[];
 
-    /*** 変更点！ const unsubscribe = の部分を追加 ***/
     const unsubscribe = await firebase
       .firestore()
       .collection("messages")
@@ -66,15 +65,10 @@ export function ChatScreen(props: Props) {
           if (change.type === "added") {
             //今アプリにもっているmessagesに取得した差分を追加
             messages.unshift(change.doc.data() as Message);
-            // } else if (change.type === "removed") {
-            //   console.log("【modified data】");
-            // } else if (change.type === "modified") {
-            //   console.log("【deleted some data】");
           }
           setMessages(messages);
         });
       });
-    /** 変更点！ この部分を追加 **/
     return unsubscribe;
   };
 
@@ -97,7 +91,6 @@ export function ChatScreen(props: Props) {
       headerLeft: () => (
         <TouchableOpacity
           onPress={() => {
-            // unsubscribe();   <--- 削除 変更点！
             pressedSignOut();
             back();
           }}

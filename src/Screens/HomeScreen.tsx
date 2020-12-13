@@ -3,23 +3,16 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
-  TextInput,
   TouchableOpacity,
   Alert,
-  KeyboardAvoidingView,
   FlatList,
-  Platform,
-  Button,
 } from "react-native";
 import { useNavigation, RouteProp } from "@react-navigation/native";
-import firebase from "firebase";
-import { ChatItem } from "../ChatItem";
+// import firebase from "firebase";
 import { StatusBar } from "expo-status-bar";
 import "react-native-gesture-handler";
-//
 import { loadAll, removeBplanInfoAsync } from "../Store";
-import { FAB, List, BottomNavigation } from "react-native-paper";
+import { FAB, List } from "react-native-paper";
 import moment from "moment";
 
 type HomeScreenRouteProp = RouteProp<AppNavigatorParamList, "Home">;
@@ -88,7 +81,6 @@ export function HomeScreen(props: Props) {
 
   return (
     <View style={styles.container}>
-      {/* <Text>{currentUser.email}</Text> */}
       <View style={styles.title}>
         <Text style={styles.titleText}>My BirthPlan一覧</Text>
       </View>
@@ -139,8 +131,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   titleText: {
-    // paddingRight: 20,
-    // paddingLeft: 20,
     minWidth: "90%",
     fontSize: 20,
     fontWeight: "bold",

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import * as firebase from "firebase";
-import "firebase/firestore";
-import { useNavigation, RouteProp } from "@react-navigation/native";
+// import * as firebase from "firebase";
+// import "firebase/firestore";
 
 export function LaborPainScreen() {
   return (
@@ -39,7 +38,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFBEDA",
     alignItems: "center",
-    // justifyContent: "center",
   },
   title: {
     backgroundColor: "#F08080",
@@ -51,8 +49,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   titleText: {
-    // paddingRight: 20,
-    // paddingLeft: 20,
     minWidth: "90%",
     fontSize: 20,
     fontWeight: "bold",

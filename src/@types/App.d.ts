@@ -9,7 +9,6 @@ type RootStackParamList = {
   SignUp: undefined;
   SignIn: undefined;
   Edit: { user: signedInUser; bPlan: B_Plan };
-  // AppNavigator: { screen: string; params: { user: signedInUser } };
   AppNavigator: { user: signedInUser };
   BirthPlan: undifined;
   Postpartum: undifined;
@@ -23,11 +22,6 @@ type AppNavigatorParamList = {
   User: { user: signedInUser };
   Help: { user: signedInUser };
 };
-
-// type HomeNavigatorParamList = {
-//   Home: { user: signedInUser };
-//   Edit: { user: signedInUser; bPlan: B_Plan };
-// };
 
 type ChatParamList = {
   Chat: { user: signedInUser };

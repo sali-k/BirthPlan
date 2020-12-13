@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import { StyleSheet, Text, View, Alert, Button, Linking } from "react-native";
-import * as firebase from "firebase";
-import "firebase/firestore";
-import { FAB, List, BottomNavigation } from "react-native-paper";
-import { useNavigation, RouteProp } from "@react-navigation/native";
+// import * as firebase from "firebase";
+// import "firebase/firestore";
+import { FAB } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 import "react-native-gesture-handler";
-import { Feather, AntDesign, FontAwesome5, Fontisto } from "@expo/vector-icons";
 
 export function HelpScreen() {
   const navigation = useNavigation();
@@ -17,9 +16,6 @@ export function HelpScreen() {
   };
   const toIdea_3 = () => {
     navigation.navigate("Postpartum");
-  };
-  const Help_1 = () => {
-    navigation.navigate("Ideas");
   };
 
   //お問い合わせフォーム
@@ -85,18 +81,6 @@ export function HelpScreen() {
           <OpenURLButton url={supportedURL}>相談する</OpenURLButton>
         </View>
       </>
-      {/* <WebView
-        source={{
-          uri:
-            "https://docs.google.com/forms/d/e/1FAIpQLSfqvd7wdOAVVffsezp0xO8lH8O_RhfllkYljIw3lf_gSe9LsQ/viewform?usp=sf_link",
-        }}
-        style={{ marginTop: 20 }}
-      />
-      <FAB
-        style={styles.addButton}
-        icon="file-document-edit-outline"
-        onPress={Help_1}
-      /> */}
       <View style={styles.container}></View>
     </View>
   );
@@ -119,8 +103,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   titleText: {
-    // paddingRight: 20,
-    // paddingLeft: 20,
     minWidth: "90%",
     fontSize: 20,
     fontWeight: "bold",
@@ -153,5 +135,3 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 });
-
-//

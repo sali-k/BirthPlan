@@ -1,11 +1,5 @@
 import { createContext } from "react";
-// import { User } from "../@types/user";
 import firebase from "firebase";
-
-// type UserContextValue = {
-//   user: User | null;
-//   setUser: (user: User | null) => void;
-// };
 
 export const initialUser: User = {
   name: "",

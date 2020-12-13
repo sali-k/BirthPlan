@@ -1,8 +1,7 @@
 import { useNavigation, RouteProp } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { TextInput, Button } from "react-native-paper";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Button } from "react-native-paper";
 import { save } from "../Store";
 import { TextArea } from "../components/TextArea";
 
@@ -28,12 +27,6 @@ export function PlanScreen(props: Props) {
 
   return (
     <View style={styles.container}>
-      {/* <TextInput
-        placeholder="<例>"
-        multiline
-        onChangeText={(text) => setText(text)}
-        style={styles.text}
-      /> */}
       <View style={styles.text}>
         <TextArea
           value={text}
@@ -58,8 +51,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFBEDA",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   text: {
     backgroundColor: "#fff",

@@ -4,11 +4,9 @@ import {
   SafeAreaView,
   Text,
   Alert,
-  Image,
   ImageBackground,
   View,
 } from "react-native";
-import { updateUser } from "../Fire";
 import firebase from "firebase";
 /* components */
 import { Form } from "../components/Form";
@@ -18,7 +16,6 @@ import { Loading } from "../components/Loading";
 import { UserContext } from "../contexts/userContext";
 /* types */
 import { StackNavigationProp } from "@react-navigation/stack";
-// import { RootStackParamList } from "../@types/navigation";
 import { RouteProp } from "@react-navigation/native";
 import babyLogo from "../assets/baby.jpg";
 
@@ -50,20 +47,8 @@ export const UserScreen: React.FC<Props> = (props: Props) => {
     }
   };
 
-  // const { user, setUser } = useContext<User | null>(UserContext);
-
-  // const [user, setUser] = useState<User>(newUser);
-
   const [name, setName] = useState<string>(user.name);
   const [loading, setLoading] = useState<boolean>(false);
-
-  const onSubmit = async () => {
-    setLoading(true);
-    const updatedAt = firebase.firestore.Timestamp.now();
-    await updateUser(user.id, { name: name });
-    setUser({ ...user, name /*updatedAt*/ });
-    setLoading(false);
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -81,7 +66,6 @@ export const UserScreen: React.FC<Props> = (props: Props) => {
         </View>
         <View style={styles.userBtn}>
           <Button onPress={() => sendUser(name, currentUser)} text="保存する" />
-          {/* <Button onPress={onSubmit} text="保存する22" /> */}
         </View>
         <Loading visible={loading} />
       </ImageBackground>
@@ -93,8 +77,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   image: {
     flex: 1,
