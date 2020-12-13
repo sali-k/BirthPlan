@@ -1,3 +1,5 @@
+declare module "*.jpg";
+
 type signedInUser = {
   email: string;
   uid: string;
@@ -6,10 +8,29 @@ type signedInUser = {
 type RootStackParamList = {
   SignUp: undefined;
   SignIn: undefined;
-  Home: { user: signedInUser };
+  Edit: { user: signedInUser; bPlan: B_Plan };
+  // AppNavigator: { screen: string; params: { user: signedInUser } };
   AppNavigator: { user: signedInUser };
-  Plan: undifined;
-  User: undifined;
+  BirthPlan: undifined;
+  Postpartum: undifined;
+  LaborPain: undifined;
+  Delivery: undifined;
+};
+
+type AppNavigatorParamList = {
+  Home: { user: signedInUser };
+  Chat: { user: signedInUser };
+  User: { user: signedInUser };
+  Help: { user: signedInUser };
+};
+
+// type HomeNavigatorParamList = {
+//   Home: { user: signedInUser };
+//   Edit: { user: signedInUser; bPlan: B_Plan };
+// };
+
+type ChatParamList = {
+  Chat: { user: signedInUser };
 };
 
 type Message = {
@@ -22,3 +43,21 @@ interface B_Plan {
   text: string;
   createdAt: number;
 }
+
+type User = {
+  id: string;
+  name: string;
+  updatedAt?: firebase.firestore.Timestamp;
+  createdAt?: firebase.firestore.Timestamp;
+};
+
+const initialUser: User = {
+  name: "",
+  updatedAt: firebase.firestore.Timestamp.now(),
+  createdAt: firebase.firestore.Timestamp.now(),
+};
+
+type UserContextValue = {
+  user: User;
+  setUser: (user: User) => void;
+};

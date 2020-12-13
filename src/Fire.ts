@@ -26,3 +26,7 @@ export const fireConfig = {
 if (firebase.apps.length === 0) {
   firebase.initializeApp(fireConfig);
 }
+
+export const updateUser = async (userId: string, params: any) => {
+  await firebase.firestore().collection("users").doc(userId).update(params);
+};

@@ -11,8 +11,11 @@ import { Provider as PaperProvider } from "react-native-paper";
 import {
   SignupScreen,
   SigninScreen,
-  HomeScreen,
   PlanScreen,
+  EditScreen,
+  DeliveryScrren,
+  LaborPainScreen,
+  PostpartumScreen,
 } from "./src/Screens/Screens";
 import AppNavigator from "./src/navigation/AppNavigator";
 
@@ -34,8 +37,11 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="AppNavigator" component={AppNavigator} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Plan" component={PlanScreen} />
+          <Stack.Screen name="BirthPlan" component={PlanScreen} />
+          <Stack.Screen name="Edit" component={EditScreen} />
+          <Stack.Screen name="LaborPain" component={LaborPainScreen} />
+          <Stack.Screen name="Delivery" component={DeliveryScrren} />
+          <Stack.Screen name="Postpartum" component={PostpartumScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

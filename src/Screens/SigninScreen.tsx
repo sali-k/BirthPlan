@@ -44,9 +44,7 @@ export function SigninScreen() {
         };
 
         Alert.alert("サインイン成功！", "正常にサインインできました。");
-        // console.log(JSON.stringify(user));
-        // コマンド＋N、プレーンをjsonに切り替えて、貼り付け。初回のみ、コマンド＋Kでログで表示させたデータの中身をチェックできる
-        // toHome();
+
         toAppNavigator(currentUser);
       })
       .catch((error) => {
@@ -156,7 +154,6 @@ const styles = StyleSheet.create({
     borderRadius: 70,
     borderWidth: 2,
     borderColor: "#fff",
-    //borderRadius 境界線の丸みをつける。
   },
   buttonText: {
     fontSize: 20,

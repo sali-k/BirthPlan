@@ -6,13 +6,14 @@ import { TextInput, Button } from "react-native-paper";
 import { save } from "../Store";
 import { TextArea } from "../components/TextArea";
 
-type PlanScreenRouteProps = RouteProp<RootStackParamList, "BirthPlan">;
+type EditScreenRouteProps = RouteProp<RootStackParamList, "Edit">;
 type Props = {
-  route: PlanScreenRouteProps;
+  route: EditScreenRouteProps;
 };
 
-export function PlanScreen(props: Props) {
-  const [text, setText] = React.useState("");
+export function EditScreen(props: Props) {
+  const bPlan = props.route.params.bPlan;
+  const [text, setText] = React.useState(bPlan.text);
   // 画面遷移の定義
   const navigation = useNavigation();
 
@@ -22,18 +23,13 @@ export function PlanScreen(props: Props) {
 
   // 保存ボタンを押した時の関数
   const onSave = () => {
-    save(text, Date.now());
+    console.log(bPlan.createdAt);
+    save(text, bPlan.createdAt);
     navigation.goBack();
   };
 
   return (
     <View style={styles.container}>
-      {/* <TextInput
-        placeholder="<例>"
-        multiline
-        onChangeText={(text) => setText(text)}
-        style={styles.text}
-      /> */}
       <View style={styles.text}>
         <TextArea
           value={text}
